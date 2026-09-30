@@ -1,7 +1,7 @@
 {
   "required": false,
   "minVersion": "0.8",
-  "package": "com.bettercontent.airtightmachinery.mixin",
+  "package": "com.bettercontent.betterairtightmachines.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "chemistry.create.BasinAirtightMixin",
@@ -17,5 +17,5 @@
     "defaultRequire": 0
   },
   "server": [],
-  "refmap": "airtight_machinery.refmap.json"
+  "refmap": "better_airtight_machines.refmap.json"
 }

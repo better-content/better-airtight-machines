@@ -1,4 +1,4 @@
-package com.bettercontent.airtightmachinery.chemistry;
+package com.bettercontent.betterairtightmachines.chemistry;
 
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;

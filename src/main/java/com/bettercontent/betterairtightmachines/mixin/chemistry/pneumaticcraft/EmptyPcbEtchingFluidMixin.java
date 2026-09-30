@@ -1,4 +1,4 @@
-package com.bettercontent.airtightmachinery.mixin.chemistry.pneumaticcraft;
+package com.bettercontent.betterairtightmachines.mixin.chemistry.pneumaticcraft;
 
 import me.desht.pneumaticcraft.common.item.EmptyPCBItem;
 import net.minecraft.resources.ResourceLocation;

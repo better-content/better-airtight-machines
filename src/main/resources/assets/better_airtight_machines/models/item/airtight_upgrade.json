@@ -2,6 +2,6 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "minecraft:item/iron_ingot",
-    "layer1": "airtight_machinery:item/airtight_upgrade_seal"
+    "layer1": "better_airtight_machines:item/airtight_upgrade_seal"
   }
 }

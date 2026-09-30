@@ -1,7 +1,7 @@
-package com.bettercontent.airtightmachinery.mixin.chemistry.pneumaticcraft;
+package com.bettercontent.betterairtightmachines.mixin.chemistry.pneumaticcraft;
 
-import com.bettercontent.airtightmachinery.chemistry.AirtightUpgradeHolder;
-import com.bettercontent.airtightmachinery.chemistry.GasRecipeContainment;
+import com.bettercontent.betterairtightmachines.chemistry.AirtightUpgradeHolder;
+import com.bettercontent.betterairtightmachines.chemistry.GasRecipeContainment;
 import me.desht.pneumaticcraft.api.crafting.recipe.ThermoPlantRecipe;
 import me.desht.pneumaticcraft.common.block.entity.ThermopneumaticProcessingPlantBlockEntity;
 import net.minecraft.nbt.CompoundTag;
@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = ThermopneumaticProcessingPlantBlockEntity.class, remap = false)
 abstract class ThermopneumaticPlantAirtightMixin implements AirtightUpgradeHolder {
-    @Unique private static final String BETTER_CONTENT_FIXES$AIRTIGHT = "airtight_machinery:Airtight";
+    @Unique private static final String BETTER_CONTENT_FIXES$AIRTIGHT = "better_airtight_machines:Airtight";
     @Unique private boolean betterContentFixes$airtight;
     @Shadow(remap = false) private boolean searchForRecipe;
     @Shadow(remap = false) private ThermoPlantRecipe currentRecipe;

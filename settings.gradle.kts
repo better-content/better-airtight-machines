@@ -7,4 +7,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "airtight-machinery"
+rootProject.name = "better-airtight-machines"

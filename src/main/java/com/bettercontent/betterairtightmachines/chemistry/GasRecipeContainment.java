@@ -1,6 +1,6 @@
-package com.bettercontent.airtightmachinery.chemistry;
+package com.bettercontent.betterairtightmachines.chemistry;
 
-import com.bettercontent.latentchemlib.sim.GasFluidCodec;
+import com.bettercontent.betterchemlibhazards.sim.GasFluidCodec;
 import com.smashingmods.chemlib.api.Chemical;
 import com.smashingmods.chemlib.api.MatterState;
 import java.util.Arrays;

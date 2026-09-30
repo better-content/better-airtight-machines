@@ -1,6 +1,6 @@
-package com.bettercontent.airtightmachinery.mixin.chemistry.create;
+package com.bettercontent.betterairtightmachines.mixin.chemistry.create;
 
-import com.bettercontent.airtightmachinery.chemistry.AirtightUpgradeHolder;
+import com.bettercontent.betterairtightmachines.chemistry.AirtightUpgradeHolder;
 import com.simibubi.create.content.processing.basin.BasinBlockEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;

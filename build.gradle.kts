@@ -17,8 +17,8 @@ fun betterContentJar(repository: String, artifact: String): java.io.File {
     require(jar.isFile) { "Missing Better Content provider $artifact at $jar" }
     return jar
 }
-val latentJar = betterContentJar("latent-chemlib", "latent-chemlib-0.2.0.jar")
-val heatSyncJar = betterContentJar("heat-sync", "heat-sync-0.1.0.jar")
+val latentJar = betterContentJar("better-chemlib-hazards", "better-chemlib-hazards-0.2.0.jar")
+val heatSyncJar = betterContentJar("better-industrial-heat", "better-industrial-heat-0.1.0.jar")
 
 group = "com.bettercontent"
 version = modVersion
@@ -64,9 +64,9 @@ minecraft {
 dependencies {
     minecraft("net.minecraftforge:forge:$minecraftVersion-$forgeVersion")
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
-    compileOnly(fg.deobf("local:latent-chemlib:0.2.0"))
-    runtimeOnly(fg.deobf("local:latent-chemlib:0.2.0"))
-    runtimeOnly(fg.deobf("local:heat-sync:0.1.0"))
+    compileOnly(fg.deobf("local:better-chemlib-hazards:0.2.0"))
+    runtimeOnly(fg.deobf("local:better-chemlib-hazards:0.2.0"))
+    runtimeOnly(fg.deobf("local:better-industrial-heat:0.1.0"))
     runtimeOnly("thedarkcolour:kotlinforforge:4.11.0")
     runtimeOnly(fg.deobf("curse.maven:pollution-of-the-realms-269973:8554528"))
     runtimeOnly(fg.deobf("curse.maven:forgeendertech-244844:8554308"))
@@ -109,4 +109,4 @@ tasks.register("verifyFast") { group = "verification"; dependsOn(tasks.named("ch
 tasks.register("verifyFull") { group = "verification"; dependsOn(tasks.named("verifyFast")); dependsOn(tasks.named("headlessGameTest")) }
 tasks.withType<JavaCompile>().configureEach { options.release.set(17) }
 
-mixin { add(sourceSets.main.get(), "airtight_machinery.refmap.json"); config("airtight_machinery.mixins.json") }
+mixin { add(sourceSets.main.get(), "better_airtight_machines.refmap.json"); config("better_airtight_machines.mixins.json") }

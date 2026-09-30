@@ -1,14 +1,14 @@
 modLoader="javafml"
 loaderVersion="[47,)"
 license="AGPL-3.0-or-later"
-issueTrackerURL="https://github.com/better-content/airtight-machinery/issues"
+issueTrackerURL="https://github.com/better-content/better-airtight-machines/issues"
 
 [[mods]]
 modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
 authors="Better Content"
-displayURL="https://github.com/better-content/airtight-machinery"
+displayURL="https://github.com/better-content/better-airtight-machines"
 description='''
 Adds a removable airtight upgrade for Create Basins and PneumaticCraft gas machines.
 '''
@@ -28,7 +28,7 @@ ordering="NONE"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
-modId="latent_chemlib"
+modId="better_chemlib_hazards"
 mandatory=true
 versionRange="[0.2.0,)"
 ordering="AFTER"

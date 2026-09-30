@@ -1,6 +1,6 @@
-package com.bettercontent.airtightmachinery.mixin.chemistry.create;
+package com.bettercontent.betterairtightmachines.mixin.chemistry.create;
 
-import com.bettercontent.latentchemlib.api.AirtightInventory;
+import com.bettercontent.betterchemlibhazards.api.AirtightInventory;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.simibubi.create.content.processing.basin.BasinBlockEntity;
 import com.simibubi.create.content.processing.basin.BasinRenderer;

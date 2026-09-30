@@ -1,9 +1,9 @@
-package com.bettercontent.airtightmachinery.gametest;
+package com.bettercontent.betterairtightmachines.gametest;
 
-import com.bettercontent.airtightmachinery.ModMain;
-import com.bettercontent.airtightmachinery.chemistry.AirtightUpgradeHolder;
-import com.bettercontent.airtightmachinery.chemistry.ChemistryContent;
-import com.bettercontent.airtightmachinery.chemistry.GasRecipeContainment;
+import com.bettercontent.betterairtightmachines.ModMain;
+import com.bettercontent.betterairtightmachines.chemistry.AirtightUpgradeHolder;
+import com.bettercontent.betterairtightmachines.chemistry.ChemistryContent;
+import com.bettercontent.betterairtightmachines.chemistry.GasRecipeContainment;
 import com.simibubi.create.AllBlocks;
 import me.desht.pneumaticcraft.common.core.ModBlocks;
 import me.desht.pneumaticcraft.common.item.EmptyPCBItem;
@@ -27,7 +27,7 @@ public final class AirtightChemistryGameTests {
 
     @GameTest(templateNamespace = ModMain.MOD_ID, template = "empty")
     public static void supportedMachinesPersistAirtightState(final GameTestHelper helper) {
-        if (!ModList.get().isLoaded("latent_chemlib")) {
+        if (!ModList.get().isLoaded("better_chemlib_hazards")) {
             helper.succeed();
             return;
         }
@@ -79,7 +79,7 @@ public final class AirtightChemistryGameTests {
         }
         holder.betterContentFixes$setAirtight(true);
         final CompoundTag saved = blockEntity.saveWithFullMetadata();
-        if (!saved.getBoolean("airtight_machinery:Airtight")) {
+        if (!saved.getBoolean("better_airtight_machines:Airtight")) {
             helper.fail(ForgeRegistries.BLOCKS.getKey(block) + " did not write airtight state");
             return;
         }

@@ -1,6 +1,6 @@
-package com.bettercontent.airtightmachinery.chemistry;
+package com.bettercontent.betterairtightmachines.chemistry;
 
-import com.bettercontent.airtightmachinery.ModMain;
+import com.bettercontent.betterairtightmachines.ModMain;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

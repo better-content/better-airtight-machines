@@ -2,10 +2,10 @@
 
 ## Scope
 
-This repository contains the Better Content Forge mod **Airtight Machinery**.
+This repository contains the Better Content Forge mod **Better Airtight Machines**.
 
-- Canonical mod ID: `airtight_machinery`
-- Canonical artifact: `airtight-machinery-<version>.jar`
+- Canonical mod ID: `better_airtight_machines`
+- Canonical artifact: `better-airtight-machines-<version>.jar`
 - Maven group: `com.bettercontent`
 - Java runtime: 17
 - Minecraft/Forge baseline: 1.20.1 / 47.4.13
