@@ -1,5 +1,5 @@
 {
-  size: [1, 1, 1],
+  size: [5, 3, 3],
   entities: [],
   blocks: [],
   palette: [
