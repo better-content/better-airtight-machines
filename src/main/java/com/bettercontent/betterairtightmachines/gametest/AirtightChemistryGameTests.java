@@ -28,7 +28,7 @@ public final class AirtightChemistryGameTests {
     @GameTest(templateNamespace = ModMain.MOD_ID, template = "empty")
     public static void supportedMachinesPersistAirtightState(final GameTestHelper helper) {
         if (!ModList.get().isLoaded("better_chemlib_hazards")) {
-            helper.succeed();
+            helper.fail("Required Better Chemlib Hazards fixture is missing");
             return;
         }
         verifyPersistence(helper, new BlockPos(1, 1, 1), AllBlocks.BASIN.get());
