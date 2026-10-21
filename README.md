@@ -1,5 +1,33 @@
 # Better Airtight Machines
 
+## Native source fixture safety
+
+The actual ForgeGradle GameTest RunConfig uses a fresh `build/gametest/<UUID>`, never the
+ordinary client/server run directory or an existing world. Absent-only comment settings
+preserve native defaults and existing settings; preparation copies authored structures.
+The full gate requires exactly three completed/passed native tests, startup/shutdown and
+own structured status in both actual latest/debug logs, with ERROR/FATAL and failed-operation
+WARN/stack rejection. Fast negative controls check diagnostics, populations and property
+preservation. All old builds/worlds/evidence remain retained; source guards do not constitute
+runtime acceptance or authorize a build/native producer.
+
+Native-only preparation completes exactly `config/adpother-common.toml` and
+`config/forgeendertech-common.toml` from the read-only, hash-pinned authored snapshot in
+`gradle/native-default-configs/`. The Python preparer verifies clean tracked canonical Root
+input bytes and original Git blobs, then binds the actual UUID/source-fixture receipt before
+`CREATE_NEW` writes. Matching existing bytes are preserved; mismatches/symlinks/foreign or
+used fixtures fail without overwriting them. `native-default-config-inputs.json` records the
+actual destination, before/after hashes and provenance before launch. The canonical Root is
+`/home/dev/better-content-modpack` (or explicit `BC_CANONICAL_PACK_ROOT` with identical verified
+tracked inputs); unrelated Root HEAD changes do not replace immutable input provenance.
+
+This is fixture input fidelity, not a proven watcher-race cure. No warm `Sources.cfg` files,
+watcher masking, native setting/budget changes or production runtime dependency are added.
+Minecraft-free input/receipt/negative controls and rejecting runtime/sources archive checks
+are wired into the normal fast gate. Ordinary operator directories and the original eight
+JVM/three Native assertions are unchanged. New gates still need separately admitted owning
+build/Native execution; a source-only check is not runtime qualification.
+
 ## Playtest diagnostics
 
 `bc.playtest.better_airtight_machines.containment` reports server-side upgrade install,

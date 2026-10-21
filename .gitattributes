@@ -1,0 +1,4 @@
+# Approved fixtures preserve exact tracked Root bytes, including authored EOF blank lines.
+# Keep other whitespace checks; do not normalize these two immutable inputs.
+gradle/native-default-configs/config/adpother-common.toml whitespace=-blank-at-eof
+gradle/native-default-configs/config/forgeendertech-common.toml whitespace=-blank-at-eof

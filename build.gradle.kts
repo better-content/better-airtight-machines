@@ -52,7 +52,6 @@ minecraft {
         create("client")
         create("server") { arg("--nogui") }
         create("gameTestServer") {
-            workingDirectory(project.file("run-gametest"))
             property("forge.enableGameTest", "true")
             property("forge.gameTestServer", "true")
             property("forge.enabledGameTestNamespaces", "$modId,minecraft")
@@ -103,8 +102,8 @@ tasks.withType<Test>().configureEach { useJUnitPlatform(); finalizedBy("jacocoTe
 jacoco { toolVersion = "0.8.12" }
 tasks.jacocoTestReport { dependsOn(tasks.test); reports { xml.required.set(true); html.required.set(true) } }
 tasks.register("headlessGameTest") { group = "verification"; dependsOn(tasks.named("runGameTestServer")) }
-val syncGameTestStructures by tasks.registering(Copy::class) { from("src/main/resources/gameteststructures"); into("run-gametest/gameteststructures") }
-tasks.matching { it.name.startsWith("prepareRunGameTestServer") }.configureEach { dependsOn(syncGameTestStructures) }
+// Native-only UUID RunConfig; ordinary run directories and all old worlds stay untouched.
+apply(from = "gradle/native-gametest-fixture.gradle")
 tasks.register("verifyFast") { group = "verification"; dependsOn(tasks.named("check")) }
 tasks.register("verifyFull") { group = "verification"; dependsOn(tasks.named("verifyFast")); dependsOn(tasks.named("headlessGameTest")) }
 tasks.withType<JavaCompile>().configureEach { options.release.set(17) }
