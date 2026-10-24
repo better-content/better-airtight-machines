@@ -44,11 +44,7 @@ version, required integrations and exact owner-artifact source metadata when pre
 its logger profile/`bc.playtest.level`. No per-block/render output is added. The six-case
 common contract and two pure containment-field tests run in the ordinary source gate.
 
-## Scope and authority
-
-This repository owns its mod-specific behavior and authoring inputs. Read [local instructions](AGENTS.md)
-and the [shared documentation/policy index](../../better-content-modpack/docs/README.md).
-
+## Scope
 
 Adds an `better_airtight_machines:airtight_upgrade` item that seals Create Basins and PneumaticCraft Fluid Mixers and Thermopneumatic Processing Plants against Latent ChemLib gas escape. Apply the upgrade by using it on a supported machine; sneak-use it empty-handed to remove it.
 
