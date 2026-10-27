@@ -148,11 +148,11 @@ class OwningBindingControls(unittest.TestCase):
             base = E / 'owning-binding' / case / 'build/gametest'
             run = base / (str(uuid.uuid4()) if case != 'noncanonical' else 'AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA')
             run.mkdir(parents=True)
-            marker = {'working_directory': str(run.resolve()), 'expected_native_tests': 3,
+            marker = {'working_directory': str(run.resolve()), 'expected_native_tests': 4,
                       'mode': 'authored_gametests', 'old_world_absent': True,
                       'old_latest_log_absent': True, 'old_debug_log_absent': True}
             if case == 'foreign': marker['working_directory'] = str(run.parent / 'foreign')
-            if case == 'count': marker['expected_native_tests'] = 4
+            if case == 'count': marker['expected_native_tests'] = 5
             if case == 'freshness': marker['old_debug_log_absent'] = False
             if case != 'missing': (run / 'source-fixture.json').write_text(json.dumps(marker))
             if case == 'world': (run / 'world').mkdir()

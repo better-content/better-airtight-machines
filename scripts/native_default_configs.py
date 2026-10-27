@@ -40,7 +40,7 @@ def require_native_receipt(run, base):
     if not marker.is_file() or marker.is_symlink():
         raise FixtureError('Missing actual owning source-fixture receipt')
     data = json.loads(marker.read_text())
-    if (data.get('working_directory') != str(run.resolve()) or data.get('expected_native_tests') != 3
+    if (data.get('working_directory') != str(run.resolve()) or data.get('expected_native_tests') != 4
             or data.get('mode') != 'authored_gametests'
             or not all(data.get(key) is True for key in ['old_world_absent', 'old_latest_log_absent', 'old_debug_log_absent'])
             or any((run / name).exists() for name in ['world', 'logs/latest.log', 'logs/debug.log', 'native-default-config-inputs.json'])):

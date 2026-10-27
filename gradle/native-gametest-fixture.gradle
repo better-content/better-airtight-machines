@@ -1,5 +1,5 @@
 // Reviewed authored population; no change to native TPS, deadlines or namespaces.
-def expectedNativeTests = 3
+def expectedNativeTests = 4
 def nativeRun = minecraft.runs.getByName('gameTestServer')
 def fixtureRoot = layout.buildDirectory.dir('gametest').get().asFile.canonicalFile
 def defaultInputScript = file('scripts/native_default_configs.py')

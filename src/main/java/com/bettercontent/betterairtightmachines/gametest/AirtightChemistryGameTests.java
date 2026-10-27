@@ -70,6 +70,61 @@ public final class AirtightChemistryGameTests {
         helper.succeed();
     }
 
+    @GameTest(templateNamespace = ModMain.MOD_ID, template = "empty")
+    public static void registeredInteractionInstallsAndSneakRemovesExactlyOneUpgrade(final GameTestHelper helper) {
+        final var player = helper.makeMockSurvivalPlayer();
+        player.getAbilities().instabuild = false;
+        final Block[] supported = {AllBlocks.BASIN.get(), ModBlocks.FLUID_MIXER.get(), ModBlocks.THERMOPNEUMATIC_PROCESSING_PLANT.get()};
+        for (int i = 0; i < supported.length; i++) {
+            final BlockPos relative = new BlockPos(i + 1, 1, 1);
+            helper.setBlock(relative, supported[i]);
+            final BlockPos position = helper.absolutePos(relative);
+            final var holder = (AirtightUpgradeHolder) helper.getBlockEntity(relative);
+            final ItemStack upgrades = new ItemStack(ChemistryContent.AIRTIGHT_UPGRADE.get(), 2);
+            player.getInventory().clearContent();
+            player.setShiftKeyDown(false);
+            player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, upgrades);
+            final var installed = click(player, position);
+            helper.assertTrue(installed.isCanceled() && installed.getCancellationResult().consumesAction(), "Registered install interaction must be handled");
+            helper.assertTrue(holder.isAirtight() && upgrades.getCount() == 1, "Installation must seal the native holder and consume exactly one upgrade");
+            click(player, position);
+            helper.assertTrue(holder.isAirtight() && upgrades.getCount() == 1, "Already sealed holder must not consume another upgrade");
+
+            player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, ItemStack.EMPTY);
+            click(player, position);
+            helper.assertTrue(holder.isAirtight() && player.getInventory().isEmpty(), "Ordinary empty-hand use must not remove or refund the upgrade");
+            player.setShiftKeyDown(true);
+            final var removed = click(player, position);
+            helper.assertTrue(removed.isCanceled() && removed.getCancellationResult().consumesAction(), "Registered sneak removal must be handled");
+            helper.assertTrue(!holder.isAirtight() && player.getInventory().countItem(ChemistryContent.AIRTIGHT_UPGRADE.get()) == 1,
+                    "Removal must unseal and return exactly one upgrade");
+            // Clear the refunded held slot before repeating the empty-hand removal attempt.
+            player.getInventory().clearContent();
+            player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, ItemStack.EMPTY);
+            click(player, position);
+            helper.assertTrue(!holder.isAirtight() && player.getInventory().isEmpty(), "Unsealed holder cannot refund a second upgrade");
+        }
+        final BlockPos unsupported = new BlockPos(1, 1, 2);
+        helper.setBlock(unsupported, net.minecraft.world.level.block.Blocks.STONE);
+        final ItemStack untouched = new ItemStack(ChemistryContent.AIRTIGHT_UPGRADE.get(), 2);
+        player.setShiftKeyDown(false);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, untouched);
+        final var ignored = click(player, helper.absolutePos(unsupported));
+        helper.assertTrue(!ignored.isCanceled() && untouched.getCount() == 2, "Unsupported blocks must not admit or consume upgrades");
+        helper.succeed();
+    }
+
+    private static net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock click(
+            net.minecraft.world.entity.player.Player player, BlockPos position) {
+        final var event = new net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock(
+                player, net.minecraft.world.InteractionHand.MAIN_HAND, position,
+                new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(position),
+                        net.minecraft.core.Direction.UP, position, false));
+        // Dispatch through the real registration, not directly to the interaction handler.
+        net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(event);
+        return event;
+    }
+
     private static void verifyPersistence(final GameTestHelper helper, final BlockPos relativePos, final Block block) {
         helper.setBlock(relativePos, block);
         final BlockEntity blockEntity = helper.getBlockEntity(relativePos);
